@@ -5,6 +5,7 @@ import { styles } from '../styles';
 import { EarthCanvas } from './canvas';
 import { SectionWrapper } from '../hoc';
 import { slideIn } from '../utils/motion';
+import AlertDialog from './AlertDialog';
 
 
 const Contact = () => {
@@ -16,6 +17,7 @@ const Contact = () => {
   });
 
   const [loading, setloading] = useState(false);
+  const [alert, setAlert] = useState({ isOpen: false, type: 'success', title: '', message: '' });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -34,7 +36,12 @@ const Contact = () => {
     }, "UWKeBqUDXONVOQ_hu")
       .then(() => {
         setloading(false);
-        alert("Thank You! I will get back to you as soon as possible.");
+        setAlert({
+          isOpen: true,
+          type: 'success',
+          title: 'Message Sent!',
+          message: 'Thank You! I will get back to you as soon as possible.'
+        });
         setform({
           name: "",
           email: "",
@@ -43,8 +50,12 @@ const Contact = () => {
       }, (error) => {
         setloading(false);
         console.log(error);
-        alert('Something went wrong! Try again later.')
-
+        setAlert({
+          isOpen: true,
+          type: 'error',
+          title: 'Error',
+          message: 'Something went wrong! Try again later.'
+        });
       })
   }
 
@@ -86,6 +97,16 @@ const Contact = () => {
       >
         <EarthCanvas />
       </motion.div>
+
+      {/* Alert Dialog */}
+      <AlertDialog
+        isOpen={alert.isOpen}
+        onClose={() => setAlert({ ...alert, isOpen: false })}
+        type={alert.type}
+        title={alert.title}
+        message={alert.message}
+        duration={alert.type === 'success' ? 3000 : 4000}
+      />
     </div>
   )
 }
