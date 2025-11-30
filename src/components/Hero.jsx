@@ -82,7 +82,16 @@ const Hero = () => {
       
       {/* Scroll indicator - Only show on larger screens */}
       <div className='hidden md:block absolute bottom-10 left-1/2 transform -translate-x-1/2'>
-        <a href="#about">
+        <a 
+          href="/about"
+          onClick={(e) => {
+            e.preventDefault();
+            const element = document.getElementById('about');
+            if (element) {
+              element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+          }}
+        >
           <div className='w-9 h-14 rounded-3xl border-2 border-[#915eff] flex justify-center items-start p-2'>
             <motion.div 
               className='w-2 h-3 rounded-full bg-[#915eff]'

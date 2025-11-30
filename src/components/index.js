@@ -8,6 +8,8 @@ import Education from './Education';
 import Works from './Works';
 import Feedbacks from './Feedbacks';
 import Contact from './Contact';
+import Statistics from './Statistics';
+import Blog from './Blog';
 
 export {
   Hero,
@@ -19,6 +21,8 @@ export {
   Works,
   Feedbacks,
   Contact,
+  Statistics,
+  Blog,
   EarthCanvas, 
   BallCanvas, 
   ComputersCanvas, 
