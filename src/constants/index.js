@@ -167,6 +167,14 @@ export const navLinks = [
         title: "Awards",
     },
     {
+        id: "statistics",
+        title: "Statistics",
+    },
+    {
+        id: "blog",
+        title: "Blog",
+    },
+    {
         id: "contact",
         title: "Contact",
     },
@@ -392,6 +400,7 @@ const projects = [
         ],
         image: whereismybus,
         source_code_link: "https://github.com/theayushgupta08/whereismybus",
+        demo_link: null, // Add your live demo URL here if available
     },
     {
         name: "Linktree Clone",
@@ -413,6 +422,7 @@ const projects = [
         ],
         image: linktreeclone,
         source_code_link: "https://github.com/theayushgupta08/linktree-clone",
+        demo_link: null, // Add your live demo URL here if available
     },
     {
         name: "Zen List",
@@ -434,6 +444,7 @@ const projects = [
         ],
         image: zenlist,
         source_code_link: "https://github.com/theayushgupta08/ZenList-Day-Planner",
+        demo_link: null, // Add your live demo URL here if available
     },
 ];
 

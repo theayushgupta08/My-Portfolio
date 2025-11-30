@@ -5,11 +5,11 @@ import { SectionWrapper } from '../hoc';
 import { motion } from 'framer-motion';
 import { projects } from '../constants';
 import { fadeIn, textVariant, staggerContainer } from '../utils/motion';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { ChevronLeft, ChevronRight, ExternalLink } from 'lucide-react';
 import { useRef, useEffect, useState } from 'react';
 
 
-const ProjectCard = ({ index, name, description, tags, image, source_code_link }) => {
+const ProjectCard = ({ index, name, description, tags, image, source_code_link, demo_link }) => {
   return (
     <motion.div
       // With this variants the image card will come up one by one because each have diffrent index. 
@@ -25,12 +25,23 @@ const ProjectCard = ({ index, name, description, tags, image, source_code_link }
       >
         <div className='relative w-full h-48 flex-shrink-0 mb-4'>
           <img src={image} alt={name} className='w-full h-full object-cover rounded-2xl ' />
-          <div className='absolute inset-0 flex justify-end m-3 card-img_hover '>
-            <div onClick={() => window.open(source_code_link, "_blank")}
-              className='black-gradient w-10 h-10 rounded-full cursor-pointer flex justify-center items-center'>
+          <div className='absolute inset-0 flex justify-end gap-2 m-3 card-img_hover'>
+            {demo_link && (
+              <div 
+                onClick={() => window.open(demo_link, "_blank")}
+                className='black-gradient w-10 h-10 rounded-full cursor-pointer flex justify-center items-center hover:bg-purple-500 transition-colors'
+                title="Live Demo"
+              >
+                <ExternalLink className='w-5 h-5 text-white' />
+              </div>
+            )}
+            <div 
+              onClick={() => window.open(source_code_link, "_blank")}
+              className='black-gradient w-10 h-10 rounded-full cursor-pointer flex justify-center items-center hover:bg-purple-500 transition-colors'
+              title="Source Code"
+            >
               <img src={github} alt="github" className='w-5 h-5 object-contain' />
             </div>
-
           </div>
         </div>
         <div className='mt-2 flex-1 flex flex-col'>
@@ -153,7 +164,12 @@ const Works = () => {
               >
                 <ProjectCard
                   index={index}
-                  {...project}
+                  name={project.name}
+                  description={project.description}
+                  tags={project.tags}
+                  image={project.image}
+                  source_code_link={project.source_code_link}
+                  demo_link={project.demo_link}
                 />
               </div>
             ))}
