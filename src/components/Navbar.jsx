@@ -4,7 +4,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { styles } from '../styles';
 import { navLinks } from '../constants';
 import { logo, menu, close } from '../assets';
-import { ChevronDown, Download, User, Briefcase, FolderKanban, Mail, GraduationCap, Award, Trophy, BarChart3, BookOpen, MoreVertical } from 'lucide-react';
+import { ChevronDown, Download, User, Briefcase, FolderKanban, Mail, GraduationCap, Award, Trophy, BarChart3, BookOpen, MoreVertical, Handshake } from 'lucide-react';
+import HireMe from './HireMe';
 
 
 
@@ -35,6 +36,7 @@ const Navbar = () => {
   const [Active, setActive] = useState("");
   const [toggle, setToggle] = useState(false);
   const [showMoreMenu, setShowMoreMenu] = useState(false);
+  const [showHireMe, setShowHireMe] = useState(false);
   const moreMenuRef = useRef(null);
 
   const handleNavClick = (e, id) => {
@@ -189,6 +191,16 @@ const Navbar = () => {
             </AnimatePresence>
           </div>
 
+          {/* Hire Me Button */}
+          <button
+            onClick={() => setShowHireMe(true)}
+            className='flex items-center gap-2 px-5 py-2.5 ml-2 rounded-lg bg-gradient-to-r from-cyan-500 to-purple-500 text-white text-sm font-semibold hover:shadow-lg hover:shadow-cyan-500/25 transition-all duration-300 hover:scale-105'
+            aria-label="Hire Me"
+          >
+            <Handshake className='w-4 h-4' />
+            <span>Hire Me</span>
+          </button>
+
           {/* Resume Button */}
           <a
             href={navLinks.find(l => l.download)?.url}
@@ -201,7 +213,20 @@ const Navbar = () => {
           </a>
         </div>
         {/* Mobile Navigation */}
-        <div className='lg:hidden flex flex-1 justify-end items-center gap-3'>
+        <div className='lg:hidden flex flex-1 justify-end items-center gap-2'>
+          {/* Mobile Hire Me Button */}
+          <button
+            onClick={() => {
+              setShowHireMe(true);
+              setToggle(false);
+            }}
+            className='flex items-center gap-1.5 px-3 py-2 rounded-lg bg-gradient-to-r from-cyan-500 to-purple-500 text-white text-xs font-semibold'
+            aria-label="Hire Me"
+          >
+            <Handshake className='w-3.5 h-3.5' />
+            <span className='hidden sm:inline'>Hire</span>
+          </button>
+
           {/* Mobile Resume Button */}
           <a
             href={navLinks.find(l => l.download)?.url}
@@ -284,6 +309,9 @@ const Navbar = () => {
           </div>
         </div>
       </div>
+
+      {/* Hire Me Modal */}
+      <HireMe isOpen={showHireMe} onClose={() => setShowHireMe(false)} />
     </nav>
   )
 }
