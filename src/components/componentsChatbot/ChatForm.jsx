@@ -16,7 +16,7 @@ const ChatForm = ({ chatHistory, setChatHistory, generateBotResponse }) => {
         setTimeout(() => {
             // Adding typing message to bot response
             setChatHistory((history) => [...history, { role: "model", text: "Typing..." }]);
-            generateBotResponse([...chatHistory, { role: "user", text: `You are the person, and you have to respond to the query using the details provided. Do not include anything else.: ${usermessage}` }]);
+            generateBotResponse([...chatHistory, { role: "user", text: usermessage }]);
 
         }, 600);
 

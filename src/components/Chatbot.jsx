@@ -3,6 +3,7 @@ import ChatbotIcon from "./componentsChatbot/Chatboticon";
 import ChatForm from "./componentsChatbot/ChatForm";
 import ChatMessage from "./componentsChatbot/ChatMessage";
 import { mydata } from "./componentsChatbot/mydata";
+import { getResponse } from "./componentsChatbot/chatbotLogic";
 
 const Chatbot = () => {
 
@@ -10,32 +11,35 @@ const Chatbot = () => {
   const [showChatbot, setShowChatbot] = useState(false);
   const chatBodyRef = useRef();
 
-  const generateBotResponse = async (history) => {
+  const generateBotResponse = (history) => {
 
     // Updating Chat history with bot response
     const updateHistory = (text, isError = false) => {
       setChatHistory(prev => [...prev.filter(msg => msg.text !== "Typing..."), { role: "model", text, isError }]);
     }
 
-    // Formatting chat hsisotry for API request 
-    history = history.map(({ role, text }) => ({ role, parts: [{ text }] }));
-    const requestOperation = {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ contents: history }),
-    }
-
     try {
-      // Fetching response from API
-      const response = await fetch(import.meta.env.VITE_API_URL, requestOperation);
-      const data = await response.json();
-      // Updating chat history with bot response
-      if (!response.ok) throw new Error(data.error.message || "Error fetching response from API");
-      const apiResponseText = data.candidates[0].content.parts[0].text.replace(/\*\*(.*?)\*\*/g, "$1").trim();
-      updateHistory(apiResponseText);
+      // Get the last user message from history
+      const lastUserMessage = history
+        .filter(msg => !msg.hideInChat && msg.role === "user")
+        .pop();
+      
+      if (!lastUserMessage) {
+        updateHistory("I'm here to help! Please ask me a question.", false);
+        return;
+      }
+
+      // Get response from local chatbot logic
+      const userMessage = lastUserMessage.text;
+      const botResponse = getResponse(userMessage);
+      
+      // Simulate a small delay for better UX
+      setTimeout(() => {
+        updateHistory(botResponse, false);
+      }, 300);
 
     } catch (error) {
-      updateHistory(error.message, true);
+      updateHistory("I encountered an error. Please try again or contact directly via email.", true);
     }
 
   };
@@ -43,7 +47,9 @@ const Chatbot = () => {
 
   useEffect(() => {
     // Auto Scroll when history updates
-    chatBodyRef.current.scrollTo({ top: chatBodyRef.current.scrollHeight, behavior: "smooth" });
+    if (chatBodyRef.current) {
+      chatBodyRef.current.scrollTo({ top: chatBodyRef.current.scrollHeight, behavior: "smooth" });
+    }
   }, [chatHistory]);
 
 
@@ -69,7 +75,11 @@ const Chatbot = () => {
         <div ref={chatBodyRef} className="chat-body">
           <div className="message bot-message">
             <ChatbotIcon />
-            <p className="message-text">Hi there! I am GuptaGPT. <br /> Nice to see you. How I can help you?</p>
+            <p className="message-text">
+              👋 Hi there! I'm <strong>GuptaGPT</strong>, your AI assistant. <br />
+              I'm here to help answer questions about Ayush Gupta's portfolio, skills, projects, and experience. 
+              Feel free to ask me anything! 😊
+            </p>
           </div>
 
           {/* Rendering chat message dynamically */}

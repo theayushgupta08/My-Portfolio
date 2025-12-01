@@ -11,6 +11,8 @@ const EducationCard = ({ education, index }) => {
   return (
     <motion.div
       variants={fadeIn("up", "spring", index * 0.2, 0.75)}
+      initial="hidden"
+      animate="show"
       className="relative group"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
@@ -128,9 +130,15 @@ const Education = () => {
 
   const filteredEducation = education.filter(edu => {
     if (activeFilter === 'all') return true;
-    if (activeFilter === 'college') return edu.institution.toLowerCase().includes('college');
-    if (activeFilter === 'school') return edu.institution.toLowerCase().includes('school');
-    return true;
+    if (activeFilter === 'college') {
+      // College: Bachelor's degree (1st item)
+      return edu.institution.toLowerCase().includes('college');
+    }
+    if (activeFilter === 'school') {
+      // School: 12th and 10th (2nd and 3rd items)
+      return edu.institution.toLowerCase().includes('school');
+    }
+    return false;
   });
 
   return (
@@ -167,15 +175,15 @@ const Education = () => {
 
       {/* Education cards grid */}
       <motion.div
+        key={activeFilter} // Force re-render when filter changes
         variants={staggerContainer()}
         initial="hidden"
-        whileInView="show"
-        viewport={{ once: true, amount: 0.25 }}
+        animate="show"
         className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto"
         ref={containerRef}
       >
         {filteredEducation.map((edu, index) => (
-          <EducationCard key={index} education={edu} index={index} />
+          <EducationCard key={`${edu.title}-${edu.date}`} education={edu} index={index} />
         ))}
       </motion.div>
 
