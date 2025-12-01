@@ -1,12 +1,12 @@
 import React, { useRef, useEffect, useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { styles } from '../styles';
 import { SectionWrapper } from '../hoc';
 import { certificates } from '../constants';
 import { fadeIn, textVariant, staggerContainer } from '../utils/motion';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { ChevronLeft, ChevronRight, X, ZoomIn } from 'lucide-react';
 
-const CertificateCard = ({ index, cert }) => {
+const CertificateCard = ({ index, cert, onImageClick }) => {
   return (
     <motion.div
       variants={fadeIn('up', 'spring', index * 0.1, 0.75)}
@@ -15,12 +15,19 @@ const CertificateCard = ({ index, cert }) => {
       <div className='relative'>
         {/* Certificate Image (optional) - Uncomment and add your image */}
         {cert.image && (
-          <div className='mb-4 overflow-hidden rounded-lg h-48 flex-shrink-0'>
+          <div 
+            className='mb-4 overflow-hidden rounded-lg h-48 flex-shrink-0 relative group cursor-pointer'
+            onClick={() => onImageClick(cert.image, cert.title)}
+          >
             <img 
               src={cert.image} 
               className='w-full h-full object-cover rounded-lg hover:scale-105 transition-transform duration-300'
               alt={cert.title}
             />
+            {/* Overlay with zoom icon */}
+            <div className='absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center rounded-lg'>
+              <ZoomIn className='w-8 h-8 text-white' />
+            </div>
           </div>
         )}
         
@@ -80,6 +87,7 @@ const Certificates = () => {
   const [canScrollRight, setCanScrollRight] = useState(false);
   const [visibleCards, setVisibleCards] = useState(1);
   const cardRef = useRef(null);
+  const [selectedImage, setSelectedImage] = useState({ isOpen: false, image: null, title: '' });
 
   // Calculate number of visible cards based on screen size
   useEffect(() => {
@@ -126,6 +134,33 @@ const Certificates = () => {
     });
   };
 
+  const handleImageClick = (image, title) => {
+    setSelectedImage({ isOpen: true, image, title });
+  };
+
+  const closeImageModal = () => {
+    setSelectedImage({ isOpen: false, image: null, title: '' });
+  };
+
+  // Close modal on Escape key
+  useEffect(() => {
+    const handleEscape = (e) => {
+      if (e.key === 'Escape' && selectedImage.isOpen) {
+        closeImageModal();
+      }
+    };
+
+    if (selectedImage.isOpen) {
+      document.addEventListener('keydown', handleEscape);
+      document.body.style.overflow = 'hidden';
+    }
+
+    return () => {
+      document.removeEventListener('keydown', handleEscape);
+      document.body.style.overflow = 'unset';
+    };
+  }, [selectedImage.isOpen]);
+
   return (
     <motion.div
       variants={staggerContainer()}
@@ -167,6 +202,7 @@ const Certificates = () => {
                 <CertificateCard 
                   index={index}
                   cert={cert}
+                  onImageClick={handleImageClick}
                 />
               </div>
             ))}
@@ -182,6 +218,59 @@ const Certificates = () => {
           <ChevronRight className='w-5 h-5 md:w-6 md:h-6 text-white' />
         </button>
       </div>
+
+      {/* Image Modal */}
+      <AnimatePresence>
+        {selectedImage.isOpen && (
+          <>
+            {/* Backdrop */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={closeImageModal}
+              className="fixed inset-0 bg-black/90 backdrop-blur-sm z-[100] flex items-center justify-center p-4"
+              style={{ zIndex: 9999 }}
+            >
+              {/* Modal Content */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.8 }}
+                transition={{ duration: 0.3 }}
+                onClick={(e) => e.stopPropagation()}
+                className="relative max-w-4xl max-h-[80vh] w-full"
+              >
+                {/* Image Container */}
+                <div className="bg-tertiary rounded-xl overflow-hidden shadow-2xl border border-purple-500/20">
+                  {/* Title and Close Button in same row */}
+                  {selectedImage.title && (
+                    <div className="px-6 py-4 bg-gradient-to-r from-purple-500/20 to-cyan-500/20 border-b border-purple-500/20 flex items-center justify-between">
+                      <h3 className="text-white font-bold text-lg">{selectedImage.title}</h3>
+                      <button
+                        onClick={closeImageModal}
+                        className="p-2 rounded-lg bg-white/10 hover:bg-white/20 transition-colors flex-shrink-0"
+                        aria-label="Close image"
+                      >
+                        <X className="w-5 h-5 text-white" />
+                      </button>
+                    </div>
+                  )}
+                  
+                  {/* Image */}
+                  <div className="overflow-auto max-h-[calc(90vh-80px)] scrollbar-hide">
+                    <img
+                      src={selectedImage.image}
+                      alt={selectedImage.title}
+                      className="w-full h-auto object-contain"
+                    />
+                  </div>
+                </div>
+              </motion.div>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
     </motion.div>
   );
 };

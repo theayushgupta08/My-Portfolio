@@ -180,7 +180,7 @@ export const navLinks = [
     },
 ];
 
-const socialLinksicons = [
+export const socialLinksicons = [
     {
         icon: facebook,
         alt: "Facebook",
@@ -278,10 +278,10 @@ const technologies = [
 const experiences = [
     {
         title: "Software Developer",
-        company_name: "Sqano Systems Pvt. Ltd.",
+        company_name: "Sqano Systems Pvt. Ltd. (Ample Enterprises Technologies)",
         icon: sqanosystems,
         iconBg: "#E6DEDD",
-        date: "June 2025 - Present",
+        date: "June 2025 - November 2025",
         link: "https://www.sqano.com/",
         points: [
             "Building iQan.ai.",
@@ -496,4 +496,4 @@ const education = [
     },
 ];
 
-export { services, technologies, experiences, testimonials, projects, socialLinksicons, education };
+export { services, technologies, experiences, testimonials, projects, education };

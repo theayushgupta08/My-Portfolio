@@ -117,10 +117,10 @@ const HireMe = ({ isOpen, onClose }) => {
               exit={{ opacity: 0, scale: 0.9, y: 20 }}
               transition={{ duration: 0.3 }}
               onClick={(e) => e.stopPropagation()}
-              className="bg-tertiary rounded-2xl shadow-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto border border-purple-500/20 mx-auto my-auto"
+              className="bg-tertiary rounded-2xl shadow-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto border border-purple-500/20 mx-auto my-auto scrollbar-hide"
               style={{ 
                 position: 'relative',
-                margin: 'auto'
+                margin: 'auto',
               }}
             >
               {/* Header */}
@@ -140,40 +140,43 @@ const HireMe = ({ isOpen, onClose }) => {
 
               {/* Form */}
               <form ref={formRef} onSubmit={handleSubmit} className="p-6 space-y-5">
-                {/* Name */}
-                <div className="flex flex-col">
-                  <label htmlFor="name" className="text-white font-medium mb-2 flex items-center gap-2">
-                    <User className="w-4 h-4 text-purple-400" />
-                    Name <span className="text-red-400">*</span>
-                  </label>
-                  <input
-                    id="name"
-                    name="name"
-                    type="text"
-                    value={form.name}
-                    onChange={handleChange}
-                    placeholder="Enter your full name"
-                    required
-                    className="bg-black/50 py-3 px-4 placeholder:text-secondary text-white rounded-lg outline-none border border-purple-500/20 focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20 transition-all font-medium"
-                  />
-                </div>
+                {/* Name and Contact in one row */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                  {/* Name */}
+                  <div className="flex flex-col">
+                    <label htmlFor="name" className="text-white font-medium mb-2 flex items-center gap-2">
+                      <User className="w-4 h-4 text-purple-400" />
+                      Name <span className="text-red-400">*</span>
+                    </label>
+                    <input
+                      id="name"
+                      name="name"
+                      type="text"
+                      value={form.name}
+                      onChange={handleChange}
+                      placeholder="Enter your full name"
+                      required
+                      className="bg-black/50 py-3 px-4 placeholder:text-secondary text-white rounded-lg outline-none border border-purple-500/20 focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20 transition-all font-medium"
+                    />
+                  </div>
 
-                {/* Contact */}
-                <div className="flex flex-col">
-                  <label htmlFor="contact" className="text-white font-medium mb-2 flex items-center gap-2">
-                    <Phone className="w-4 h-4 text-purple-400" />
-                    Contact Number <span className="text-red-400">*</span>
-                  </label>
-                  <input
-                    id="contact"
-                    name="contact"
-                    type="tel"
-                    value={form.contact}
-                    onChange={handleChange}
-                    placeholder="Enter your contact number"
-                    required
-                    className="bg-black/50 py-3 px-4 placeholder:text-secondary text-white rounded-lg outline-none border border-purple-500/20 focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20 transition-all font-medium"
-                  />
+                  {/* Contact */}
+                  <div className="flex flex-col">
+                    <label htmlFor="contact" className="text-white font-medium mb-2 flex items-center gap-2">
+                      <Phone className="w-4 h-4 text-purple-400" />
+                      Contact Number <span className="text-red-400">*</span>
+                    </label>
+                    <input
+                      id="contact"
+                      name="contact"
+                      type="tel"
+                      value={form.contact}
+                      onChange={handleChange}
+                      placeholder="Enter your contact number"
+                      required
+                      className="bg-black/50 py-3 px-4 placeholder:text-secondary text-white rounded-lg outline-none border border-purple-500/20 focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20 transition-all font-medium"
+                    />
+                  </div>
                 </div>
 
                 {/* Email */}

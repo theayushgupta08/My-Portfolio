@@ -1,5 +1,5 @@
 import { BrowserRouter } from 'react-router-dom';
-import { About, Contact, Experience, Education, Feedbacks, Hero, Navbar, Tech, Works, StarsCanvas, Statistics, Blog } from './components';
+import { About, Contact, Experience, Education, Feedbacks, Hero, Navbar, Tech, Works, StarsCanvas, Statistics, Blog, Footer } from './components';
 import Certificates from './components/Certificates';
 import Chatbot from './components/Chatbot';
 import Awards from './components/Awards';
@@ -28,9 +28,7 @@ const App = () => {
           <Contact />
           <StarsCanvas />
         </div>
-        <div className="text-center text-sm text-white mb-2">
-          Made with ❤️ by <a href="https://github.com/theayushgupta08" target="_blank" rel="noopener noreferrer" className='text-purple-500'>Ayush Gupta</a>
-        </div>
+        <Footer />
       </div>
     </BrowserRouter>
   )

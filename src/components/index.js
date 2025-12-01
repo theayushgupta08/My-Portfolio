@@ -10,6 +10,7 @@ import Feedbacks from './Feedbacks';
 import Contact from './Contact';
 import Statistics from './Statistics';
 import Blog from './Blog';
+import Footer from './Footer';
 
 export {
   Hero,
@@ -23,6 +24,7 @@ export {
   Contact,
   Statistics,
   Blog,
+  Footer,
   EarthCanvas, 
   BallCanvas, 
   ComputersCanvas, 
