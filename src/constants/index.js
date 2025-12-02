@@ -452,6 +452,7 @@ const education = [
     {
         title: "Bachelor of Engineering in Computer Science",
         institution: "Indira College of Engineering and Management, Pune",
+        affiliation: "Savitribai Phule Pune University (SPPU)",
         icon: igi,
         iconBg: "#E6DEDD",
         date: "2021 - 2025",
@@ -467,6 +468,7 @@ const education = [
     {
         title: "Higher Secondary Education (12th)",
         institution: "Surmount International School, Gorakhpur",
+        affiliation: "Central Board of Secondary Education (CBSE)",
         icon: surmount,
         iconBg: "#383E56",
         date: "2019 - 2020",
@@ -482,6 +484,7 @@ const education = [
     {
         title: "Secondary Education (10th)",
         institution: "Surmount International School, Gorakhpur",
+        affiliation: "Central Board of Secondary Education (CBSE)",
         icon: surmount,
         iconBg: "#E6DEDD",
         date: "2017 - 2018",

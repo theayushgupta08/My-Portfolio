@@ -41,6 +41,11 @@ const Navbar = () => {
 
   const handleNavClick = (e, id) => {
     e.preventDefault();
+    // Handle blog route separately
+    if (id === 'blog') {
+      window.location.href = '/blogs';
+      return;
+    }
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -170,18 +175,33 @@ const Navbar = () => {
                           animate={{ opacity: 1, x: 0 }}
                           transition={{ delay: index * 0.05 }}
                         >
-                          <a
-                            href={`/${link.id}`}
-                            onClick={(e) => handleNavClick(e, link.id)}
-                            className={`flex items-center gap-3 px-4 py-2.5 text-sm transition-all duration-200 ${
-                              Active === link.id
-                                ? 'text-white bg-purple-500/20'
-                                : 'text-secondary hover:text-white hover:bg-purple-500/10'
-                            }`}
-                          >
-                            {Icon && <Icon className='w-4 h-4' />}
-                            <span>{link.title}</span>
-                          </a>
+                          {link.id === 'blog' ? (
+                            <Link
+                              to="/blogs"
+                              onClick={() => setShowMoreMenu(false)}
+                              className={`flex items-center gap-3 px-4 py-2.5 text-sm transition-all duration-200 ${
+                                Active === link.id
+                                  ? 'text-white bg-purple-500/20'
+                                  : 'text-secondary hover:text-white hover:bg-purple-500/10'
+                              }`}
+                            >
+                              {Icon && <Icon className='w-4 h-4' />}
+                              <span>{link.title}</span>
+                            </Link>
+                          ) : (
+                            <a
+                              href={`/${link.id}`}
+                              onClick={(e) => handleNavClick(e, link.id)}
+                              className={`flex items-center gap-3 px-4 py-2.5 text-sm transition-all duration-200 ${
+                                Active === link.id
+                                  ? 'text-white bg-purple-500/20'
+                                  : 'text-secondary hover:text-white hover:bg-purple-500/10'
+                              }`}
+                            >
+                              {Icon && <Icon className='w-4 h-4' />}
+                              <span>{link.title}</span>
+                            </a>
+                          )}
                         </motion.li>
                       );
                     })}
@@ -286,22 +306,37 @@ const Navbar = () => {
                 const Icon = navIcons[link.id];
                 return (
                   <li key={link.id} role="menuitem">
-                    <a
-                      href={`/${link.id}`}
-                      onClick={(e) => {
-                        e.preventDefault();
-                        handleNavClick(e, link.id);
-                        setToggle(!toggle);
-                      }}
-                      className={`flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-all duration-200 ${
-                        Active === link.id
-                          ? 'text-white bg-purple-500/20'
-                          : 'text-secondary hover:text-white hover:bg-purple-500/10'
-                      }`}
-                    >
-                      {Icon && <Icon className='w-4 h-4' />}
-                      <span>{link.title}</span>
-                    </a>
+                    {link.id === 'blog' ? (
+                      <Link
+                        to="/blogs"
+                        onClick={() => setToggle(!toggle)}
+                        className={`flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-all duration-200 ${
+                          Active === link.id
+                            ? 'text-white bg-purple-500/20'
+                            : 'text-secondary hover:text-white hover:bg-purple-500/10'
+                        }`}
+                      >
+                        {Icon && <Icon className='w-4 h-4' />}
+                        <span>{link.title}</span>
+                      </Link>
+                    ) : (
+                      <a
+                        href={`/${link.id}`}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          handleNavClick(e, link.id);
+                          setToggle(!toggle);
+                        }}
+                        className={`flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-all duration-200 ${
+                          Active === link.id
+                            ? 'text-white bg-purple-500/20'
+                            : 'text-secondary hover:text-white hover:bg-purple-500/10'
+                        }`}
+                      >
+                        {Icon && <Icon className='w-4 h-4' />}
+                        <span>{link.title}</span>
+                      </a>
+                    )}
                   </li>
                 );
               })}

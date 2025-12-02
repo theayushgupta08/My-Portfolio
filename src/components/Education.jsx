@@ -37,6 +37,8 @@ const EducationCard = ({ education, index }) => {
               <p className="text-secondary text-sm font-medium">
               <a href={education.link} target="_blank" rel="noopener noreferrer">
                 {education.institution}
+                <br />
+                Affiliated to: <span className="text-purple-300">{education.affiliation}</span>
                 </a>
               </p>
             </div>
