@@ -5,18 +5,17 @@ import {
     web,
     javascript,
     typescript,
-    html,
-    css,
     reactjs,
     tailwind,
     mongodb,
-    cpp,
     python,
-    sql,
     cyberayush,
     igi,
     inorbvict,
+    hrrs,
     whereismybus,
+    ncmservices,
+    niftyindices,
     linktreeclone,
     sqanosystems,
     zenlist,
@@ -24,10 +23,17 @@ import {
     facebook,
     instagram,
     github,
+    git,
     blogger,
     leetcode,
     machinelearning,
     deeplearning,
+    mysql,
+    postgresql,
+    django,
+    fastapi,
+    aws,
+    vercel,
     aiprincipales,
     introgenai,
     llms,
@@ -234,24 +240,36 @@ const services = [
 
 const technologies = [
     {
-        name: "HTML 5",
-        icon: html,
-    },
-    {
-        name: "CSS 3",
-        icon: css,
+        name: "Python",
+        icon: python,
     },
     {
         name: "JavaScript",
         icon: javascript,
     },
     {
-        name: "React JS",
-        icon: reactjs,
+        name: "TypeScript",
+        icon: typescript,
     },
     {
-        name: "Python",
-        icon: python,
+        name: "Django",
+        icon: django,
+    },
+    {
+        name: "FastAPI",
+        icon: fastapi,
+    },
+    {
+        name: "AWS",
+        icon: aws,
+    },
+    {
+        name: "Vercel",
+        icon: vercel,
+    },
+    {
+        name: "React JS",
+        icon: reactjs,
     },
     {
         name: "Tailwind CSS",
@@ -270,8 +288,20 @@ const technologies = [
         icon: deeplearning,
     },
     {
-        name: "SQL",
-        icon: sql,
+        name: "MySQL",
+        icon: mysql,
+    },
+    {
+        name: "PostgreSQL",
+        icon: postgresql,
+    },
+    {
+        name: "GitHub",
+        icon: github,
+    },
+    {
+        name: "Git",
+        icon: git,
     },
 ];
 
@@ -377,6 +407,32 @@ const testimonials = [
 
 const projects = [
     {
+        name: "Hotel Room Reservation System",
+        description:
+            "A modern, interactive web application for managing hotel room reservations with a visual representation of the hotel layout. This frontend application provides an intuitive interface for booking rooms, viewing availability, and managing hotel occupancy.",
+        tags: [
+            {
+                name: "react",
+                color: "blue-text-gradient",
+            },
+            {
+                name: "python",
+                color: "green-text-gradient",
+            },
+            {
+                name: "fastapi",
+                color: "pink-text-gradient",
+            },
+            {
+                name: "full-stack",
+                color: "green-text-gradient",
+            },
+        ],
+        image: hrrs,
+        source_code_link: "https://github.com/theayushgupta08/Hotel-Room-Reservation-System---frontend",
+        demo_link: "https://hotel-room-reservation-system-backe-iota.vercel.app/", // Add your live demo URL here if available
+    },
+    {
         name: "Where is my BUS?",
         description:
             "The Real-Time Local Bus Locator and Tracker is a smart transportation system designed to provide live bus tracking, route management, and passenger assistance. Built using MERN Stack, it enables real-time GPS updates, reducing waiting times and enhancing public transport efficiency for both passengers and administrators.",
@@ -401,6 +457,58 @@ const projects = [
         image: whereismybus,
         source_code_link: "https://github.com/theayushgupta08/whereismybus",
         demo_link: null, // Add your live demo URL here if available
+    },
+    {
+        name: "Customized EBill-Generator",
+        description:
+            "A modern web application for New Calcutta Motors to generate professional electronic invoices (E-Bills) with PDF export functionality. Built with React, TypeScript, and Vite.",
+        tags: [
+            {
+                name: "react",
+                color: "blue-text-gradient",
+            },
+            {
+                name: "vite",
+                color: "green-text-gradient",
+            },
+            {
+                name: "tailwind",
+                color: "pink-text-gradient",
+            },
+            {
+                name: "typescript",
+                color: "green-text-gradient",
+            },
+        ],
+        image: ncmservices,
+        source_code_link: "https://github.com/theayushgupta08/ncm-services",
+        demo_link: "https://ncm-services.vercel.app/",
+    },
+    {
+        name: "Nifty Index Data Scraper",
+        description:
+            "A production-grade web scraper for fetching historical data from Nifty Indices. This application provides both GUI and CLI interfaces to retrieve historical index data (Open, High, Low, Close prices) for various Nifty indices within specified date ranges. The data can be exported to CSV or Excel formats for further analysis.",
+        tags: [
+            {
+                name: "python",
+                color: "blue-text-gradient",
+            },
+            {
+                name: "tkinter",
+                color: "green-text-gradient",
+            },
+            {
+                name: "selenium",
+                color: "pink-text-gradient",
+            },
+            {
+                name: "backend-development",
+                color: "green-text-gradient",
+            },
+        ],
+        image: niftyindices,
+        source_code_link: "https://github.com/theayushgupta08/nifty-indices-web-scrapping",
+        demo_link: null,
     },
     {
         name: "Linktree Clone",

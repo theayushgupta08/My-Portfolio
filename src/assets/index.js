@@ -7,13 +7,16 @@ import github from "./github.png";
 import menu from "./menu.svg";
 import close from "./close.svg";
 
-import css from "./tech/css.png";
-import cpp from "./tech/cpp.png";
+import git from "./tech/git.png";
 import machinelearning from "./tech/machinelearning.png";
 import deeplearning from "./tech/deeplearning.png";
 import python from "./tech/python.png";
-import sql from "./tech/sql.png";
-import html from "./tech/html.png";
+import mysql from "./tech/mysql.png";
+import postgresql from "./tech/postgresql.png";
+import django from "./tech/django.png";
+import fastapi from "./tech/fastapi.png";
+import aws from "./tech/aws.png";
+import vercel from "./tech/vercel.png";
 import javascript from "./tech/javascript.png";
 import mongodb from "./tech/mongodb.png";
 import reactjs from "./tech/reactjs.png";
@@ -31,10 +34,12 @@ import leetcode from "./leetcode.png";
 import blogger from "./blogger.png";
 import linkedin from "./linkedin.png";
 
-
+import hrrs from "./hrrs.png";
+import ncmservices from "./ncmservices.png";
 import whereismybus from "./whereismybus.png";
 import linktreeclone from "./linktreeclone.png";
 import zenlist from "./zenlist.png";
+import niftyindices from "./niftyindices.png";
 
 import ayush from "./ayush.png";
 
@@ -67,10 +72,9 @@ export {
   mobile,
   web,
   github,
+  git,
   menu,
   close,
-  css,
-  html,
   javascript,
   mongodb,
   reactjs,
@@ -79,11 +83,18 @@ export {
   cyberayush,
   igi,
   inorbvict,
+  hrrs,
   whereismybus,
+  ncmservices,
   linktreeclone,
   zenlist,
-  sql,
-  cpp,
+  niftyindices,
+  mysql,
+  postgresql,
+  django,
+  fastapi,
+  aws,
+  vercel,
   python,
   machinelearning,
   deeplearning,
