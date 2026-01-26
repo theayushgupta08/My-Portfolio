@@ -45,7 +45,8 @@ import {
     msme2025,
     iglls2024,
     techfest2024,
-    surmount
+    surmount,
+    codeforces
 } from "../assets";
 
 export const awards = [
@@ -188,24 +189,14 @@ export const navLinks = [
 
 export const socialLinksicons = [
     {
-        icon: facebook,
-        alt: "Facebook",
-        link: "https://facebook.com/theayushgupta08",
-    },
-    {
-        icon: instagram,
-        alt: "Instagram",
-        link: "https://instagram.com/cyberayush08",
-    },
-    {
         icon: linkedin,
         alt: "LinkedIn",
-        link: "https://linkedin.com/in/theayushgupta08",
+        link: "https://linkedin.com/in/theayushgupta08/",
     },
     {
         icon: github,
         alt: "Github",
-        link: "https://github.com/theayushgupta08",
+        link: "https://github.com/theayushgupta08/",
     },
     {
         icon: leetcode,
@@ -213,9 +204,24 @@ export const socialLinksicons = [
         link: "https://leetcode.com/u/theayushgupta08/",
     },
     {
+        icon: codeforces,
+        alt: "CodeForces",
+        link: "https://codeforces.com/profile/theayushgupta08/",
+    },
+    {
         icon: blogger,
         alt: "Blog",
         link: "https://innovate-insight.blogspot.com/",
+    },
+    {
+        icon: instagram,
+        alt: "Instagram",
+        link: "https://instagram.com/cyberayush08/",
+    },
+    {
+        icon: facebook,
+        alt: "Facebook",
+        link: "https://facebook.com/theayushgupta08/",
     },
 ];
 

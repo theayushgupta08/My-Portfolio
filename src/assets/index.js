@@ -3,7 +3,7 @@ import backend from "./backend.png";
 import creator from "./creator.png";
 import mobile from "./mobile.png";
 import web from "./web.png";
-import github from "./github.png";
+import github from "./social/github.png";
 import menu from "./menu.svg";
 import close from "./close.svg";
 
@@ -28,18 +28,19 @@ import inorbvict from "./company/inorbvict.png";
 import cyberayush from "./company/cyberayush.png";
 import sqanosystems from "./company/sqanosystems.png";
 
-import facebook from "./facebook.png";
-import instagram from "./instagram.png";
-import leetcode from "./leetcode.png";
-import blogger from "./blogger.png";
-import linkedin from "./linkedin.png";
+import facebook from "./social/facebook.png";
+import instagram from "./social/instagram.png";
+import leetcode from "./social/leetcode.png";
+import blogger from "./social/blogger.png";
+import linkedin from "./social/linkedin.png";
+import codeforces from "./social/codeforces.png";
 
-import hrrs from "./hrrs.png";
-import ncmservices from "./ncmservices.png";
-import whereismybus from "./whereismybus.png";
-import linktreeclone from "./linktreeclone.png";
-import zenlist from "./zenlist.png";
-import niftyindices from "./niftyindices.png";
+import hrrs from "./projects/hrrs.png";
+import ncmservices from "./projects/ncmservices.png";
+import whereismybus from "./projects/whereismybus.png";
+import linktreeclone from "./projects/linktreeclone.png";
+import zenlist from "./projects/zenlist.png";
+import niftyindices from "./projects/niftyindices.png";
 
 import ayush from "./ayush.png";
 
@@ -110,4 +111,5 @@ export {
   iglls2024,
   techfest2024,
   surmount,
+  codeforces
 };
