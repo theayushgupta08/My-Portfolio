@@ -462,7 +462,7 @@ const projects = [
         ],
         image: whereismybus,
         source_code_link: "https://github.com/theayushgupta08/whereismybus",
-        demo_link: null, // Add your live demo URL here if available
+        demo_link: "https://where-is-my-bus-frontend.vercel.app/", // Add your live demo URL here if available
     },
     {
         name: "Customized EBill-Generator",
