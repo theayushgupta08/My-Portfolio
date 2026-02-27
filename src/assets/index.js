@@ -85,6 +85,7 @@ export {
   cyberayush,
   igi,
   inorbvict,
+  rsl,
   hrrs,
   whereismybus,
   ncmservices,
