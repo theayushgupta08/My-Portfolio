@@ -27,6 +27,7 @@ import igi from "./company/igi.png";
 import inorbvict from "./company/inorbvict.png";
 import cyberayush from "./company/cyberayush.png";
 import sqanosystems from "./company/sqanosystems.png";
+import rsl from "./company/rsl.png";
 
 import facebook from "./social/facebook.png";
 import instagram from "./social/instagram.png";

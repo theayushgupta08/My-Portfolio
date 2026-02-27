@@ -12,6 +12,7 @@ import {
     cyberayush,
     igi,
     inorbvict,
+    rsl,
     hrrs,
     whereismybus,
     ncmservices,
@@ -312,6 +313,18 @@ const technologies = [
 ];
 
 const experiences = [
+
+    {
+        title: "Software Engineer",
+        company_name: "Raja Software Labs",
+        icon: rsl,
+        iconBg: "#E6DEDD",
+        date: "February 2026 - Present",
+        link: "https://www.rajasoftwarelabs.com/",
+        points: [
+            
+        ],
+    },
     {
         title: "Software Developer",
         company_name: "Sqano Systems Pvt. Ltd. (Ample Enterprises Technologies)",
