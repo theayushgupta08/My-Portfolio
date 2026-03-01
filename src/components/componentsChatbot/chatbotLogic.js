@@ -10,8 +10,8 @@ const extractInfo = () => {
     location: 'Pune, India',
     role: 'Data Science enthusiast and Software Development Engineer (SDE)',
     email: CONTACT_EMAIL,
-    education: 'Bachelor of Engineering in Computer Science Engineering, Indira College of Engineering and Management, Pune (2020 - 2025)',
-    currentWork: 'Software Developer at Sqano Systems Pvt. Ltd. (June 2025 - Present) - Building iQan.ai',
+    education: 'Bachelor of Engineering in Computer Science Engineering, Indira College of Engineering and Management, Pune (2021 - 2025)',
+    currentWork: 'Software Engineer at Raja Software Labs (Feb 2026 - Present)',
     skills: ['Python', 'JavaScript', 'SQL', 'MongoDB', 'React.js', 'Node.js', 'Machine Learning', 'Data Analysis', 'Power BI', 'Tableau'],
     projects: [
       'Fraudulent Transaction Prediction',
