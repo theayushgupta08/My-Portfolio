@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
-import { socialLinksicons } from '../constants';
+import { socialLinksicons, mentorLinks } from '../constants';
 import { fadeIn } from '../utils/motion';
-import { Heart, Mail } from 'lucide-react';
+import { Heart, Mail, GraduationCap } from 'lucide-react';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -118,6 +118,36 @@ const Footer = () => {
                   />
                 </motion.a>
               ))}
+            </div>
+
+            {/* Mentorship Links */}
+            <div className="mt-6">
+              <div className="flex items-center gap-2 mb-3">
+                <GraduationCap className="w-4 h-4 text-emerald-400" />
+                <h4 className="text-emerald-400 text-sm font-semibold">Mentorship</h4>
+              </div>
+              <div className="flex flex-wrap gap-3">
+                {mentorLinks.map((mentor, index) => (
+                  <motion.a
+                    key={index}
+                    href={mentor.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    variants={fadeIn("up", "spring", 0.6 + index * 0.1, 0.75)}
+                    whileHover={{ scale: 1.05, y: -3 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="flex items-center gap-2 px-3 py-2 rounded-lg bg-tertiary hover:bg-emerald-500/20 border border-emerald-500/20 hover:border-emerald-500/40 transition-all duration-300 group"
+                    aria-label={mentor.alt}
+                  >
+                    <img
+                      src={mentor.icon}
+                      alt={mentor.alt}
+                      className="w-5 h-5 object-contain group-hover:scale-110 transition-transform duration-300"
+                    />
+                    <span className="text-secondary text-sm group-hover:text-white transition-colors">{mentor.alt}</span>
+                  </motion.a>
+                ))}
+              </div>
             </div>
           </motion.div>
         </div>

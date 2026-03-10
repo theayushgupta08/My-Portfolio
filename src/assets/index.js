@@ -35,6 +35,8 @@ import leetcode from "./social/leetcode.png";
 import blogger from "./social/blogger.png";
 import linkedin from "./social/linkedin.png";
 import codeforces from "./social/codeforces.png";
+import topmate from "./social/topmate.png";
+import unstop from "./social/unstop.png";
 
 import hrrs from "./projects/hrrs.png";
 import ncmservices from "./projects/ncmservices.png";
@@ -113,5 +115,7 @@ export {
   iglls2024,
   techfest2024,
   surmount,
-  codeforces
+  codeforces,
+  topmate,
+  unstop
 };

@@ -47,7 +47,9 @@ import {
     iglls2024,
     techfest2024,
     surmount,
-    codeforces
+    codeforces,
+    topmate,
+    unstop
 } from "../assets";
 
 export const awards = [
@@ -226,18 +228,37 @@ export const socialLinksicons = [
     },
 ];
 
-const services = [
+export const mentorLinks = [
     {
-        title: "Data Scientist & ML Engineer",
-        icon: web,
+        icon: topmate,
+        alt: "Topmate",
+        link: "https://topmate.io/theayushgupta08",
+        description: "Book a 1:1 session",
     },
     {
-        title: "Frontend Developer",
+        icon: unstop,
+        alt: "Unstop",
+        link: "https://unstop.com/mentor/theayushgupta08",
+        description: "Get career mentorship",
+    },
+];
+
+const services = [
+    {
+        title: "Android Developer",
         icon: mobile,
+    },
+    {
+        title: "Web Developer",
+        icon: web,
     },
     {
         title: "Backend Developer",
         icon: backend,
+    },
+    {
+        title: "Data Scientist & ML Engineer",
+        icon: web,
     },
     {
         title: "Content Creator",
