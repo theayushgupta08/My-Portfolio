@@ -343,7 +343,10 @@ const experiences = [
         date: "February 2026 - Present",
         link: "https://www.rajasoftwarelabs.com/",
         points: [
-            
+            " Debugged and fixed API communication issues across microservices, preventing system failures and improving overall backend reliability.",
+            " Ensured secure data transfer by fixing backend bugs where authentication metadata and request payloads were being dropped during API handoffs.",
+            " Restored distributed tracing and observability tools, allowing the engineering team to successfully track API requests from start to finish.",
+            " Resolved critical service-integration bugs within a highly distributed system, significantly reducing request failures for downstream applications"
         ],
     },
     {
